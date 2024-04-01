@@ -28,6 +28,11 @@ std::string Computer::GetBuffer() const
     return m_buffer;
 }
 
+std::string Computer::GetName() const
+{
+    return "C" + std::to_string(kNumber);
+}
+
 void Computer::SetBuffer(const std::string& message)
 {
     m_buffer = message;
@@ -35,6 +40,6 @@ void Computer::SetBuffer(const std::string& message)
 
 std::ostream& operator<<(std::ostream& os, const Computer& c)
 {
-    os << "C" << c.kNumber << "(" << c.kIPAdress << ") -> " << c.GetBuffer();
+    os << c.GetName() << "(" << c.kIPAdress << ") -> " << c.GetBuffer();
     return os;
 }

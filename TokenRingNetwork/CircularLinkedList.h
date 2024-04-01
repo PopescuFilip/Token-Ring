@@ -1,16 +1,24 @@
 #pragma once
-#include "Node.h"
+#include "CircularListIterator.h"
 
 template <typename T>
 class CircularLinkedList
 {
 public:
+	CircularListIterator<T> begin() const;
+
 	void Print() const;
 
 	void AddNode(const T& value);
 private:
 	std::shared_ptr<Node<T>> m_head;
 };
+
+template<typename T>
+inline CircularListIterator<T> CircularLinkedList<T>::begin() const
+{
+	return CircularListIterator(m_head->next);
+}
 
 template<typename T>
 inline void CircularLinkedList<T>::Print() const

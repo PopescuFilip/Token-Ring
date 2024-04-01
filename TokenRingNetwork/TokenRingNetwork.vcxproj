@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CircularLinkedList.h" />
+    <ClInclude Include="CircularListIterator.h" />
     <ClInclude Include="Computer.h" />
     <ClInclude Include="Node.h" />
   </ItemGroup>

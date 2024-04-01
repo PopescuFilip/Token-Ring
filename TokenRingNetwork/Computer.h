@@ -8,6 +8,7 @@ public:
 	Computer();
 
 	std::string GetBuffer() const;
+	std::string GetName() const;
 
 	void SetBuffer(const std::string& message);
 
