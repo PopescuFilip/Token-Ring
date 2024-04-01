@@ -24,7 +24,7 @@ inline void CircularLinkedList<T>::Print() const
 	std::shared_ptr<Node<T>> aux{ m_head };
 	do
 	{
-		std::cout << aux->value << " ";
+		std::cout << aux->value << '\n';
 		aux = aux->next;
 	} while (aux != m_head);
 	std::cout << std::endl;

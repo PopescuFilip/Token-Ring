@@ -4,19 +4,18 @@
 
 int main()
 {
-	Computer c;
 
 	std::unique_ptr<Node<int>> node;
-	
-	CircularLinkedList<int> list;
+
+	CircularLinkedList<Computer> list;
 	list.Print();
-	list.AddNode(1);
+	list.AddNode({});
 	list.Print();
-	list.AddNode(2);
+	list.AddNode({});
 	list.Print();
-	list.AddNode(3);
+	list.AddNode({});
 	list.Print();
-	list.AddNode(4);
+	list.AddNode({});
 	list.Print();
 	return 0;
 }

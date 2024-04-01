@@ -4,14 +4,25 @@
 class Computer
 {
 public:
+
 	Computer();
 
-	const std::string GetIP() const;
 	std::string GetBuffer() const;
 
 	void SetBuffer(const std::string& message);
+
+	friend std::ostream& operator<<(std::ostream& os, const Computer& c);
+
 private:
-	const std::string m_IPAdress;
+
+	const int kNumber;
+	const std::string kIPAdress;
+
+	static int sCounter;
+
+private:
+
 	std::string m_buffer;
+
 };
 
