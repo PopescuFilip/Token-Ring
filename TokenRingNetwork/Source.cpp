@@ -1,9 +1,9 @@
 #include<iostream>
-#include "LinkedList.h"
+#include "CircularLinkedList.h"
 
 int main()
 {
 	Node<int> node;
-	LinkedList<int> list(5);
+	CircularLinkedList<int> list(5);
 	return 0;
 }
