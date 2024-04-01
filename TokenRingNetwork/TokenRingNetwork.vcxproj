@@ -129,7 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="CircularLinkedList.h" />
     <ClInclude Include="Node.h" />
   </ItemGroup>
   <ItemGroup>
