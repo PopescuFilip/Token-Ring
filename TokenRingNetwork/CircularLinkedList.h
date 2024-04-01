@@ -21,12 +21,12 @@ inline void CircularLinkedList<T>::Print() const
 		return;
 	}
 
-	std::shared_ptr<Node<T>> aux{ m_head };
+	std::shared_ptr<Node<T>> aux{ m_head->next };
 	do
 	{
 		std::cout << aux->value << '\n';
 		aux = aux->next;
-	} while (aux != m_head);
+	} while (aux != m_head->next);
 	std::cout << std::endl;
 }
 
