@@ -3,8 +3,7 @@
 
 int main()
 {
-	Node<int> node{ 1 };
-	std::cout << node.m_value;
+	Node<int> node;
 	LinkedList<int> list(5);
 	return 0;
 }

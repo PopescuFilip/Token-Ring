@@ -6,16 +6,14 @@ struct Node
 	Node(const T& value);
 
 	T value;
-	Node<T>* next;
+	std::unique_ptr<Node<T>> next;
 };
 
 template<typename T>
-inline Node<T>::Node() :
-	next{ nullptr }
+inline Node<T>::Node()
 {}
 
 template<typename T>
 inline Node<T>::Node(const T& value) :
-	value{ value },
-	next{ nullptr }
+	value{ value }
 {}
