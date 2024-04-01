@@ -27,12 +27,18 @@
     <ClInclude Include="CircularListIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Token.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Computer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Token.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
