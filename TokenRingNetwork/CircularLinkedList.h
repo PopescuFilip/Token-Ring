@@ -1,5 +1,6 @@
 #pragma once
 #include "CircularListIterator.h"
+#include <iostream>
 
 template <typename T>
 class CircularLinkedList

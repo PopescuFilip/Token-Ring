@@ -14,6 +14,7 @@ int main()
 	list.AddNode({});
 	list.AddNode({});
 	list.AddNode({});
+	list.Print();
 	auto it = list.begin();
 	while (true)
 	{

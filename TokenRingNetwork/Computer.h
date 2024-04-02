@@ -7,12 +7,12 @@ public:
 
 	Computer();
 
+	const std::string GetAdress() const;
 	std::string GetBuffer() const;
 	std::string GetName() const;
 
 	void SetBuffer(const std::string& message);
 
-	friend std::ostream& operator<<(std::ostream& os, const Computer& c);
 
 private:
 
@@ -26,4 +26,5 @@ private:
 	std::string m_buffer;
 
 };
+std::ostream& operator<<(std::ostream& os, const Computer& c);
 

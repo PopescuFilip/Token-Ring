@@ -21,6 +21,11 @@ Computer::Computer():
     sCounter++;
 }
 
+const std::string Computer::GetAdress() const
+{
+    return kIPAdress;;
+}
+
 std::string Computer::GetBuffer() const
 {
     if (m_buffer == "")
@@ -40,6 +45,6 @@ void Computer::SetBuffer(const std::string& message)
 
 std::ostream& operator<<(std::ostream& os, const Computer& c)
 {
-    os << c.GetName() << "(" << c.kIPAdress << ") -> " << c.GetBuffer();
+    os << c.GetName() << "(" << c.GetAdress() << ") -> " << c.GetBuffer();
     return os;
 }
