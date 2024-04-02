@@ -7,7 +7,7 @@ class TokenRingNetwork
 {
 public:
 	TokenRingNetwork(int noOfComputers);
-
+	
 private:
 	Token m_token;
 	CircularLinkedList<Computer> m_computers;
