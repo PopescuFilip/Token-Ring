@@ -10,3 +10,16 @@ void TokenRingNetwork::Print() const
 {
 	m_computers.Print();
 }
+
+void TokenRingNetwork::SimulateFor(std::chrono::seconds seconds)
+{
+	auto it = m_computers.begin();
+
+	Timer timer(seconds.count());
+	timer.Start();
+	while (!timer.ReachedThreshold())
+	{
+		std::cout << (*it).GetName() <<": moves the token\n";
+		++it;
+	}
+}
