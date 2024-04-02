@@ -1,22 +1,19 @@
 #include "Computer.h"
-#include <random>
+#include "Random.h"
 #include <sstream>
 
 int Computer::sCounter = 0;
 
-std::string generateIPAddress() {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dis(0, 255);
-
+std::string GenerateIPAddress() 
+{
     std::ostringstream oss;
-    oss << dis(gen) << '.' << dis(gen) << '.' << dis(gen) << '.' << dis(gen);
+    oss << GetRandom(0, 255) << '.' << GetRandom(0, 255) << '.' << GetRandom(0, 255) << '.' << GetRandom(0, 255);
     return oss.str();
 }
 
 Computer::Computer():
     kNumber{ sCounter },
-    kIPAdress{ generateIPAddress() }
+    kIPAdress{ GenerateIPAddress() }
 {
     sCounter++;
 }

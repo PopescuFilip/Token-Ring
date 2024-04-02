@@ -133,14 +133,14 @@
     <ClInclude Include="CircularListIterator.h" />
     <ClInclude Include="Computer.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="Token.h" />
     <ClInclude Include="TokenRingNetwork.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Computer.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Token.cpp" />
     <ClCompile Include="TokenRingNetwork.cpp" />
   </ItemGroup>

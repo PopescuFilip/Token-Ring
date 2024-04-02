@@ -33,7 +33,7 @@
     <ClInclude Include="TokenRingNetwork.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
+    <ClInclude Include="Random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClCompile Include="TokenRingNetwork.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
+    <ClCompile Include="Random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,7 +2,7 @@
 #include "CircularLinkedList.h"
 #include "Computer.h"
 #include "Token.h"
-#include "Timer.h"
+#include <vector>
 
 class TokenRingNetwork
 {
@@ -11,9 +11,16 @@ public:
 	
 	void Print() const;
 
-	void SimulateFor(std::chrono::seconds seconds);
+	void SendMessages(int noOfMessages);
+
+private:
+	int GetRandomIndex();
+	void SendMessage(CircularListIterator<Computer>& it);
+	void AddComputer();
+
 private:
 	Token m_token;
-	CircularLinkedList<Computer> m_computers;
+	CircularLinkedList<Computer> m_network;
+	std::vector<Computer> m_computers;
 };
 
