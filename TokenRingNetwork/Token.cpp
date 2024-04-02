@@ -6,13 +6,14 @@ Token::Token():
 {
 }
 
-void Token::Send(const std::string& source, const std::string& destination)
+void Token::Send(const std::string& source, const std::string& destination, const std::string& message)
 {
 	if (!m_isFree)
 		return;
 
 	m_sourceIP = source;
 	m_destinationIP = destination;
+	m_message = message;
 	m_isFree = false;
 	m_reachedDestination = false;
 }
@@ -25,6 +26,11 @@ std::string Token::GetSource() const
 std::string Token::GetDestination() const
 {
 	return m_destinationIP;
+}
+
+std::string Token::GetMessage() const
+{
+	return m_message;
 }
 
 bool Token::IsFree() const

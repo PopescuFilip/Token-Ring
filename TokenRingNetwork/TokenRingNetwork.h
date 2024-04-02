@@ -7,16 +7,17 @@
 class TokenRingNetwork
 {
 public:
-	TokenRingNetwork(int noOfComputers);
+	TokenRingNetwork(uint16_t noOfComputers);
 	
 	void Print() const;
 
-	void SendMessages(int noOfMessages);
+	void SendMessages(uint16_t noOfMessages);
 
 private:
 	int GetRandomIndex();
-	void SendMessage(CircularListIterator<Computer>& it);
+	void GenerateMessage();
 	void AddComputer();
+	void ProcessState(Computer& current, uint16_t& sentMessages);
 
 private:
 	Token m_token;
