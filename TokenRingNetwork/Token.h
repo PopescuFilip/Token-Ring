@@ -6,15 +6,17 @@ class Token
 public:
 	Token();
 
-	void Send(const std::string& source, const std::string& destination, const std::string& message);
+	void Request(const std::string& source, const std::string& destination);
 
 	std::string GetSource() const;
 	std::string GetDestination() const;
 	std::string GetMessage() const;
 	bool IsFree() const;
 	bool HasReachedDestination() const;
+	bool HasMessage() const;
 
-	void SetIsFree(bool isFree);
+	void SetMessage(const std::string& message);
+	void Free();
 	void SetReachedDestination(bool reachedDestination);
 
 private:

@@ -1,6 +1,9 @@
 #include "TokenRingNetwork.h"
 #include "Random.h"
 
+int TokenRingNetwork::sMessageCounter = 0;
+const std::string TokenRingNetwork::kDefaultMessage = "message";
+
 TokenRingNetwork::TokenRingNetwork(uint16_t noOfComputers)
 {
 	for (size_t i = 0; i < noOfComputers; i++)
@@ -26,7 +29,7 @@ void TokenRingNetwork::SendMessages(uint16_t noOfMessages)
 		if (m_token.IsFree())
 		{
 			m_network.Print();
-			GenerateMessage();
+			GenerateRequest();
 		}
 
 		ProcessState(currentComputer, sentMessages);
@@ -43,7 +46,7 @@ int TokenRingNetwork::GetRandomIndex()
 	return GetRandom(0, m_computers.size() - 1);
 }
 
-void TokenRingNetwork::GenerateMessage()
+void TokenRingNetwork::GenerateRequest()
 {
 	int sourceIndex{ GetRandomIndex() };
 	int destinationIndex{ GetRandomIndex() };
@@ -55,12 +58,7 @@ void TokenRingNetwork::GenerateMessage()
 	Computer destination{ m_computers[destinationIndex] };
 
 	std::cout << "Source: " << source.GetName() << " Destination: " << destination.GetName() << '\n';
-	
-	std::string message{ "Test" };
-	//std::cout << "Enter message: ";
-	//std::cin >> message;
-
-	m_token.Send(source.GetAdress(), destination.GetAdress(), message);
+	m_token.Request(source.GetAdress(), destination.GetAdress());
 }
 
 void TokenRingNetwork::AddComputer()
@@ -80,16 +78,26 @@ void TokenRingNetwork::ProcessState(Computer& current, uint16_t& sentMessages)
 		if (!m_token.HasReachedDestination())
 		{
 			std::cout << current.GetName() << ": has received the token\n";
+			m_token.SetMessage(std::move(TokenRingNetwork::GetDefaultMessage()));
 			return;
 		}
 		
-		std::cout << current.GetName() << ": token has arrived back at source\n";
-		m_token.SetIsFree(true);
+		std::cout << current.GetName() << ": token has arrived back at source\n\n";
+		m_token.Free();
 		sentMessages++;
 		return;
 	}
 
+	if (!m_token.HasMessage())
+		return;
+
 	std::cout << current.GetName() << ": token has arrived at destination\n";
 	current.SetBuffer(std::move(m_token.GetMessage()));
 	m_token.SetReachedDestination(true);
+}
+
+std::string TokenRingNetwork::GetDefaultMessage()
+{
+	sMessageCounter++;
+	return kDefaultMessage + '_' + std::to_string(sMessageCounter);
 }

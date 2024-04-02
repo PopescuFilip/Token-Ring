@@ -15,9 +15,15 @@ public:
 
 private:
 	int GetRandomIndex();
-	void GenerateMessage();
+	void GenerateRequest();
 	void AddComputer();
 	void ProcessState(Computer& current, uint16_t& sentMessages);
+	
+	static std::string GetDefaultMessage();
+
+private:
+	static const std::string kDefaultMessage;
+	static int sMessageCounter;
 
 private:
 	Token m_token;
