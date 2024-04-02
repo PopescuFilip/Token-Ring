@@ -92,7 +92,7 @@ void TokenRingNetwork::ProcessState(Computer& current, uint16_t& sentMessages)
 		return;
 
 	std::cout << current.GetName() << ": token has arrived at destination\n";
-	current.SetBuffer(std::move(m_token.GetMessage()));
+	current.AddToBuffer(std::move(m_token.GetMessage()));
 	m_token.SetReachedDestination(true);
 }
 

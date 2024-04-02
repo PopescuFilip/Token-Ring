@@ -35,9 +35,9 @@ std::string Computer::GetName() const
     return "C" + std::to_string(kNumber);
 }
 
-void Computer::SetBuffer(const std::string& message)
+void Computer::AddToBuffer(const std::string& message)
 {
-    m_buffer = message;
+    m_buffer += message + ';';
 }
 
 std::ostream& operator<<(std::ostream& os, const Computer& c)

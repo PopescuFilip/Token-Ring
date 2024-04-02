@@ -11,7 +11,7 @@ public:
 	std::string GetBuffer() const;
 	std::string GetName() const;
 
-	void SetBuffer(const std::string& message);
+	void AddToBuffer(const std::string& message);
 
 
 private:
