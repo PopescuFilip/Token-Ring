@@ -12,7 +12,7 @@ int main()
 	CircularLinkedList<Computer> list;
 	list.AddNode({});
 	list.AddNode({});
-	list.AddNode({});;
+	list.AddNode({});
 	list.AddNode({});
 	auto it = list.begin();
 	while (true)
