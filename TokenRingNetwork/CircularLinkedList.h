@@ -42,9 +42,9 @@ inline void CircularLinkedList<T>::Print() const
 template<typename T>
 inline void CircularLinkedList<T>::AddNode(const T& value)
 {
-	std::shared_ptr<Node<T>> newNode{ new Node(value) };
-	
-	if (!m_head) 
+	std::shared_ptr<Node<T>> newNode{ std::move(new Node(value)) };
+
+	if (!m_head)
 	{
 		m_head = newNode;
 		m_head->next = m_head;

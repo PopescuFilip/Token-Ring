@@ -1,10 +1,11 @@
-#include<iostream>
+#include <iostream>
 #include "TokenRingNetwork.h"
 
 int main()
 {
-	TokenRingNetwork network(10);
+	TokenRingNetwork network{ 10 };
 	network.SendMessages(10);
-	
+	network.Print();
+
 	return 0;
 }

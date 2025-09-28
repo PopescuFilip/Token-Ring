@@ -4,10 +4,13 @@
 
 int Computer::sCounter = 0;
 
-std::string GenerateIPAddress() 
+std::string static GenerateIPAddress()
 {
     std::ostringstream oss;
-    oss << GetRandom(0, 255) << '.' << GetRandom(0, 255) << '.' << GetRandom(0, 255) << '.' << GetRandom(0, 255);
+    oss << GetRandom(0, 255) << '.'
+        << GetRandom(0, 255) << '.'
+        << GetRandom(0, 255) << '.'
+        << GetRandom(0, 255);
     return oss.str();
 }
 

@@ -1,9 +1,6 @@
 #include "TokenRingNetwork.h"
 #include "Random.h"
 
-int TokenRingNetwork::sMessageCounter = 0;
-const std::string TokenRingNetwork::kDefaultMessage = "message";
-
 TokenRingNetwork::TokenRingNetwork(uint16_t noOfComputers)
 {
 	for (size_t i = 0; i < noOfComputers; i++)
@@ -22,7 +19,7 @@ void TokenRingNetwork::SendMessages(uint16_t noOfMessages)
 
 	auto it = m_network.begin();
 	uint16_t sentMessages = 0;
-	
+
 	while (sentMessages < noOfMessages)
 	{
 		auto& currentComputer = (*it);
@@ -41,7 +38,7 @@ void TokenRingNetwork::SendMessages(uint16_t noOfMessages)
 	}
 }
 
-int TokenRingNetwork::GetRandomIndex()
+int TokenRingNetwork::GetRandomIndex() const
 {
 	return GetRandom(0, m_computers.size() - 1);
 }
@@ -50,12 +47,12 @@ void TokenRingNetwork::GenerateRequest()
 {
 	int sourceIndex{ GetRandomIndex() };
 	int destinationIndex{ GetRandomIndex() };
-	
+
 	while (destinationIndex == sourceIndex)
 		destinationIndex = GetRandomIndex();
 
-	Computer source{ m_computers[sourceIndex] };
-	Computer destination{ m_computers[destinationIndex] };
+	const Computer& source = m_computers[sourceIndex];
+	const Computer& destination = m_computers[destinationIndex];
 
 	std::cout << "Source: " << source.GetName() << " Destination: " << destination.GetName() << '\n';
 	m_token.Request(source.GetAdress(), destination.GetAdress());
@@ -81,7 +78,7 @@ void TokenRingNetwork::ProcessState(Computer& current, uint16_t& sentMessages)
 			m_token.SetMessage(std::move(TokenRingNetwork::GetDefaultMessage()));
 			return;
 		}
-		
+
 		std::cout << current.GetName() << ": token has arrived back at source\n\n";
 		m_token.Free();
 		sentMessages++;
@@ -98,6 +95,5 @@ void TokenRingNetwork::ProcessState(Computer& current, uint16_t& sentMessages)
 
 std::string TokenRingNetwork::GetDefaultMessage()
 {
-	sMessageCounter++;
-	return kDefaultMessage + '_' + std::to_string(sMessageCounter);
+	return kBaseMessage + std::to_string(sMessageCounter++);
 }
