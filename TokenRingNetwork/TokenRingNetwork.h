@@ -14,7 +14,7 @@ public:
 	void SendMessages(uint16_t noOfMessages);
 
 private:
-	int GetRandomIndex() const;
+	size_t GetRandomIndex() const;
 	void GenerateRequest();
 	void AddComputer();
 	void ProcessState(Computer& current, uint16_t& sentMessages);

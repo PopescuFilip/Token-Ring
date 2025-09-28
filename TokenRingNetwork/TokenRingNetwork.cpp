@@ -17,12 +17,12 @@ void TokenRingNetwork::SendMessages(uint16_t noOfMessages)
 	if (noOfMessages <= 0)
 		return;
 
-	auto it = m_network.begin();
+	CircularListIterator it{ std::move(m_network.begin()) };
 	uint16_t sentMessages = 0;
 
 	while (sentMessages < noOfMessages)
 	{
-		auto& currentComputer = (*it);
+		Computer& currentComputer = (*it);
 		if (m_token.IsFree())
 		{
 			m_network.Print();
@@ -38,15 +38,15 @@ void TokenRingNetwork::SendMessages(uint16_t noOfMessages)
 	}
 }
 
-int TokenRingNetwork::GetRandomIndex() const
+size_t TokenRingNetwork::GetRandomIndex() const
 {
 	return GetRandom(0, m_computers.size() - 1);
 }
 
 void TokenRingNetwork::GenerateRequest()
 {
-	int sourceIndex{ GetRandomIndex() };
-	int destinationIndex{ GetRandomIndex() };
+	size_t sourceIndex{ GetRandomIndex() };
+	size_t destinationIndex{ GetRandomIndex() };
 
 	while (destinationIndex == sourceIndex)
 		destinationIndex = GetRandomIndex();

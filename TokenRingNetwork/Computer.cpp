@@ -23,7 +23,7 @@ Computer::Computer():
 
 const std::string Computer::GetAdress() const
 {
-    return kIPAdress;;
+    return kIPAdress;
 }
 
 std::string Computer::GetBuffer() const

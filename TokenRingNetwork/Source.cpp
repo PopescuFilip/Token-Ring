@@ -2,7 +2,7 @@
 
 int main()
 {
-	TokenRingNetwork network{ 10 };
+	TokenRingNetwork network{ 15 };
 	network.SendMessages(10);
 	network.Print();
 }

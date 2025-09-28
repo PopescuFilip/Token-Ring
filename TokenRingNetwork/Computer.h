@@ -13,7 +13,6 @@ public:
 
 	void AddToBuffer(const std::string& message);
 
-
 private:
 
 	const int kNumber;
