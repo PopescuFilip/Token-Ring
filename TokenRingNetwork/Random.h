@@ -1,3 +1,6 @@
 #include <random>
 
-int GetRandom(int lowerLimit, int upperLimit);
+namespace tokenRingNetwork
+{
+    int GetRandom(int lowerLimit, int upperLimit);
+}

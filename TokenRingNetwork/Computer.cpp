@@ -2,49 +2,52 @@
 #include "Random.h"
 #include <sstream>
 
-int Computer::sCounter = 0;
-
-std::string static GenerateIPAddress()
+namespace tokenRingNetwork
 {
-    std::ostringstream oss;
-    oss << GetRandom(0, 255) << '.'
-        << GetRandom(0, 255) << '.'
-        << GetRandom(0, 255) << '.'
-        << GetRandom(0, 255);
-    return oss.str();
-}
+    int Computer::sCounter = 0;
 
-Computer::Computer():
-    kNumber{ sCounter },
-    kIPAdress{ GenerateIPAddress() }
-{
-    sCounter++;
-}
+    std::string static GenerateIPAddress()
+    {
+        std::ostringstream oss;
+        oss << GetRandom(0, 255) << '.'
+            << GetRandom(0, 255) << '.'
+            << GetRandom(0, 255) << '.'
+            << GetRandom(0, 255);
+        return oss.str();
+    }
 
-const std::string Computer::GetAdress() const
-{
-    return kIPAdress;
-}
+    Computer::Computer() :
+        kNumber{ sCounter },
+        kIPAdress{ GenerateIPAddress() }
+    {
+        sCounter++;
+    }
 
-std::string Computer::GetBuffer() const
-{
-    if (m_buffer == "")
-        return "null";
-    return m_buffer;
-}
+    const std::string Computer::GetAdress() const
+    {
+        return kIPAdress;
+    }
 
-std::string Computer::GetName() const
-{
-    return "C" + std::to_string(kNumber);
-}
+    std::string Computer::GetBuffer() const
+    {
+        if (m_buffer == "")
+            return "null";
+        return m_buffer;
+    }
 
-void Computer::AddToBuffer(const std::string& message)
-{
-    m_buffer += message + ';';
-}
+    std::string Computer::GetName() const
+    {
+        return "C" + std::to_string(kNumber);
+    }
 
-std::ostream& operator<<(std::ostream& os, const Computer& c)
-{
-    os << c.GetName() << "(" << c.GetAdress() << ") -> " << c.GetBuffer();
-    return os;
+    void Computer::AddToBuffer(const std::string& message)
+    {
+        m_buffer += message + ';';
+    }
+
+    std::ostream& operator<<(std::ostream& os, const Computer& c)
+    {
+        os << c.GetName() << "(" << c.GetAdress() << ") -> " << c.GetBuffer();
+        return os;
+    }
 }

@@ -2,28 +2,31 @@
 
 #include<string>
 
-class Computer
+namespace tokenRingNetwork
 {
-public:
+    class Computer
+    {
+    public:
 
-    Computer();
+        Computer();
 
-    const std::string GetAdress() const;
-    std::string GetBuffer() const;
-    std::string GetName() const;
+        const std::string GetAdress() const;
+        std::string GetBuffer() const;
+        std::string GetName() const;
 
-    void AddToBuffer(const std::string& message);
+        void AddToBuffer(const std::string& message);
 
-private:
+    private:
 
-    const int kNumber;
-    const std::string kIPAdress;
+        const int kNumber;
+        const std::string kIPAdress;
 
-    static int sCounter;
+        static int sCounter;
 
-private:
+    private:
 
-    std::string m_buffer;
+        std::string m_buffer;
 
-};
-std::ostream& operator<<(std::ostream& os, const Computer& c);
+    };
+    std::ostream& operator<<(std::ostream& os, const Computer& c);
+}

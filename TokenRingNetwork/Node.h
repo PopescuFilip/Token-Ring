@@ -2,23 +2,26 @@
 
 #include <memory>
 
-template <typename T>
-struct Node
+namespace tokenRingNetwork
 {
-    Node();
-    Node(const T& value);
+    template <typename T>
+    struct Node
+    {
+        Node();
+        Node(const T& value);
 
-    T value;
-    std::shared_ptr<Node<T>> next;
-};
+        T value;
+        std::shared_ptr<Node<T>> next;
+    };
 
-template<typename T>
-inline Node<T>::Node() :
-    next{ nullptr }
-{}
+    template<typename T>
+    inline Node<T>::Node() :
+        next{ nullptr }
+    {}
 
-template<typename T>
-inline Node<T>::Node(const T& value) :
-    next{ nullptr },
-    value{ value }
-{}
+    template<typename T>
+    inline Node<T>::Node(const T& value) :
+        next{ nullptr },
+        value{ value }
+    {}
+}
