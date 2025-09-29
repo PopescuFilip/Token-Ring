@@ -57,7 +57,8 @@ namespace tokenRingNetwork
         const Computer& source = m_computers[sourceIndex];
         const Computer& destination = m_computers[destinationIndex];
 
-        std::cout << "Source: " << source.GetName() << " Destination: " << destination.GetName() << '\n';
+        std::cout << "Source: " << source.GetName()
+                  << " Destination: " << destination.GetName() << '\n';
         m_token.Request(source.GetAdress(), destination.GetAdress());
     }
 

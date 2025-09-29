@@ -11,16 +11,16 @@ namespace tokenRingNetwork
 
         void Request(const std::string& source, const std::string& destination);
 
-        std::string GetSource() const;
-        std::string GetDestination() const;
-        std::string GetMessage() const;
-        bool IsFree() const;
-        bool HasReachedDestination() const;
-        bool HasMessage() const;
+        std::string GetSource() const { return m_sourceIP; }
+        std::string GetDestination() const { return m_destinationIP; }
+        std::string GetMessage() const { return m_message; }
+        bool IsFree() const { return m_isFree; }
+        bool HasReachedDestination() const { return m_reachedDestination; }
+        bool HasMessage() const { return m_message != ""; }
 
-        void SetMessage(const std::string& message);
+        void SetMessage(const std::string& message) { m_message = message; }
+        void SetReachedDestination(bool reachedDestination) { m_reachedDestination = reachedDestination; };
         void Free();
-        void SetReachedDestination(bool reachedDestination);
 
     private:
         std::string m_sourceIP;

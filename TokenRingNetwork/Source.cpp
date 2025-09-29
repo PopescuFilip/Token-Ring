@@ -3,6 +3,6 @@
 int main()
 {
     tokenRingNetwork::TokenRingNetwork network{ 15 };
-    network.SendMessages(10);
+    network.SendMessages(100);
     network.Print();
 }
