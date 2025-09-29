@@ -1,33 +1,35 @@
 #pragma once
+
+#include <vector>
+
 #include "CircularLinkedList.h"
 #include "Computer.h"
 #include "Token.h"
-#include <vector>
 
 class TokenRingNetwork
 {
 public:
-	TokenRingNetwork(uint16_t noOfComputers);
+    TokenRingNetwork(uint16_t noOfComputers);
 
-	void Print() const;
+    void Print() const;
 
-	void SendMessages(uint16_t noOfMessages);
-
-private:
-	size_t GetRandomIndex() const;
-	void GenerateRequest();
-	void AddComputer();
-	void ProcessState(Computer& current, uint16_t& sentMessages);
-
-	static std::string GetDefaultMessage();
+    void SendMessages(uint16_t noOfMessages);
 
 private:
-	inline static const std::string kBaseMessage = "message_";
-	inline static int sMessageCounter = 1;
+    size_t GetRandomIndex() const;
+    void GenerateRequest();
+    void AddComputer();
+    void ProcessState(Computer& current, uint16_t& sentMessages);
+
+    static std::string GetDefaultMessage();
 
 private:
-	Token m_token;
-	CircularLinkedList<Computer> m_network;
-	std::vector<Computer> m_computers;
+    inline static const std::string kBaseMessage = "message_";
+    inline static int sMessageCounter = 1;
+
+private:
+    Token m_token;
+    CircularLinkedList<Computer> m_network;
+    std::vector<Computer> m_computers;
 };
 
