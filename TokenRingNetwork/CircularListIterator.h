@@ -7,22 +7,15 @@ namespace tokenRingNetwork
     class CircularListIterator
     {
     public:
-        CircularListIterator(std::shared_ptr<Node<T>> head);
+        CircularListIterator(std::shared_ptr<Node<T>> start) : m_current{ start } {};
 
-        T& operator*();
+        T& operator*() { return m_current->value; };
 
         CircularListIterator<T>& operator++();
+
     private:
         std::shared_ptr<Node<T>> m_current;
     };
-
-    template<typename T>
-    inline CircularListIterator<T>::CircularListIterator(std::shared_ptr<Node<T>> head) :
-        m_current{ head }
-    {}
-
-    template<typename T>
-    inline T& CircularListIterator<T>::operator*() { return m_current->value; }
 
     template<typename T>
     inline CircularListIterator<T>& CircularListIterator<T>::operator++()

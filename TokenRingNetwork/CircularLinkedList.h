@@ -10,36 +10,31 @@ namespace tokenRingNetwork
     class CircularLinkedList
     {
     public:
-        CircularListIterator<T> begin() const;
+        CircularListIterator<T> begin() const { return CircularListIterator(m_tail->next); }
 
         void Print() const;
 
         void AddNode(const T& value);
-    private:
-        std::shared_ptr<Node<T>> m_head;
-    };
 
-    template<typename T>
-    inline CircularListIterator<T> CircularLinkedList<T>::begin() const
-    {
-        return CircularListIterator(m_head->next);
-    }
+    private:
+        std::shared_ptr<Node<T>> m_tail;
+    };
 
     template<typename T>
     inline void CircularLinkedList<T>::Print() const
     {
-        if (!m_head)
+        if (!m_tail)
         {
             std::cout << "List is empty" << std::endl;
             return;
         }
 
-        std::shared_ptr<Node<T>> aux{ m_head->next };
+        std::shared_ptr<Node<T>> aux{ m_tail->next };
         do
         {
             std::cout << aux->value << '\n';
             aux = aux->next;
-        } while (aux != m_head->next);
+        } while (aux != m_tail->next);
         std::cout << std::endl;
     }
 
@@ -48,15 +43,15 @@ namespace tokenRingNetwork
     {
         std::shared_ptr<Node<T>> newNode{ std::move(new Node(value)) };
 
-        if (!m_head)
+        if (!m_tail)
         {
-            m_head = newNode;
-            m_head->next = m_head;
+            m_tail = newNode;
+            m_tail->next = m_tail;
             return;
         }
 
-        newNode->next = m_head->next;
-        m_head->next = newNode;
-        m_head = newNode;
+        newNode->next = m_tail->next;
+        m_tail->next = newNode;
+        m_tail = newNode;
     }
 }

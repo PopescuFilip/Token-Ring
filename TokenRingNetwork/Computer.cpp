@@ -17,27 +17,15 @@ namespace tokenRingNetwork
     }
 
     Computer::Computer() :
-        kNumber{ sCounter },
-        kIPAdress{ GenerateIPAddress() }
+        kIPAdress{ GenerateIPAddress() },
+        kName{ 'C' + std::to_string(sCounter++) }
     {
         sCounter++;
     }
 
-    const std::string Computer::GetAdress() const
-    {
-        return kIPAdress;
-    }
-
     std::string Computer::GetBuffer() const
     {
-        if (m_buffer == "")
-            return "null";
-        return m_buffer;
-    }
-
-    std::string Computer::GetName() const
-    {
-        return "C" + std::to_string(kNumber);
+        return m_buffer == "" ? "null" : m_buffer;
     }
 
     void Computer::AddToBuffer(const std::string& message)

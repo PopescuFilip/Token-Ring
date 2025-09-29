@@ -10,21 +10,19 @@ namespace tokenRingNetwork
 
         Computer();
 
-        const std::string GetAdress() const;
+        std::string GetAdress() const { return kIPAdress; }
+        std::string GetName() const { return kName; }
         std::string GetBuffer() const;
-        std::string GetName() const;
 
         void AddToBuffer(const std::string& message);
 
     private:
-
-        const int kNumber;
         const std::string kIPAdress;
+        const std::string kName;
 
         static int sCounter;
 
     private:
-
         std::string m_buffer;
 
     };
