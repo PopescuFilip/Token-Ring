@@ -20,19 +20,9 @@ namespace tokenRingNetwork
         m_reachedDestination = false;
     }
 
-    void Token::SetMessage(const std::string& message)
-    {
-        m_message = message;
-    }
-
     void Token::Free()
     {
         m_isFree = true;
         m_message = "";
-    }
-
-    void Token::SetReachedDestination(bool reachedDestination)
-    {
-        m_reachedDestination = reachedDestination;
     }
 }

@@ -7,7 +7,6 @@ namespace tokenRingNetwork
     class Computer
     {
     public:
-
         Computer();
 
         std::string GetAdress() const { return kIPAdress; }

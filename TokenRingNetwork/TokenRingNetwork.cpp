@@ -43,7 +43,7 @@ namespace tokenRingNetwork
 
     size_t TokenRingNetwork::GetRandomIndex() const
     {
-        return GetRandom(0, m_computers.size() - 1);
+        return GetRandom<size_t>(0, m_computers.size() - 1);
     }
 
     void TokenRingNetwork::GenerateRequest()
