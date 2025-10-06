@@ -16,11 +16,12 @@ namespace tokenRingNetwork
         void AddToBuffer(const std::string& message);
 
     private:
+        inline static const std::string kEmptyBufferMessage = "null";
+
         const std::string kIPAdress;
         const std::string kName;
 
         static int sCounter;
-
     private:
         std::string m_buffer;
 

@@ -134,6 +134,7 @@
     <ClInclude Include="CircularLinkedList.h" />
     <ClInclude Include="CircularListIterator.h" />
     <ClInclude Include="Computer.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Token.h" />
